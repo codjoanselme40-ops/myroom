@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Anselme SAKPONOU</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #8195c4;
+      color: #f1f5f9;
+      scroll-behavior: smooth;
+    }
+
+    
+    header {
+      padding: 20px;
+      background: rgba(109, 104, 32, 0.644);
+      backdrop-filter: blur(10px);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+    }
+    header nav { 
+      display: flex; 
+      justify-content: center;
+      align-items: center; 
+      max-width: 1200px; 
+      margin: auto; 
+      gap: 30px;
+    }
+    header nav a { 
+      color: #f1f5f9; 
+      text-decoration: none; 
+      font-weight: 600; 
+      transition: 0.3s; 
+    }
+    header nav a:hover { color: #3b82f6; }
+
+    #hero {
+      height: 100vh;
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      text-align: center;
+      padding-top: 80px;
+      flex-direction: column;
+    }
+    #hero h1 { font-size: 3em; margin-bottom: 10px; animation: fadeIn 1s ease-out; }
+    #hero span { color: #3b82f6; }
+    #hero img {
+      width: 250px;
+      height: 500px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 20px 0;
+      border: 4px solid #3b82f6;
+      animation: fadeIn 1s ease-out 0.2s both;
+    }
+    #hero p { max-width: 600px; margin: auto; opacity: 0.8; animation: fadeIn 1s ease-out 0.3s both; }
+    
+    @keyframes fadeIn { 
+      from { opacity: 0; transform: translateY(20px); } 
+      to { opacity: 1; transform: translateY(0); } 
+    }
+
+    #projets {
+      padding: 80px 20px;
+      background: #1e293b;
+    }
+    #projets h2 { text-align: center; margin-bottom: 40px; font-size: 2em; color: #3b82f6; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .card {
+      background: #0b032e;
+      border-radius: 15px;
+      overflow: hidden;
+      transition: 0.3s;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    .card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4); }
+    .card img { width: 100%; height: 180px; object-fit: cover; }
+    .card-content { padding: 20px; }
+    .card h3 { color: #3b82f6; margin-bottom: 10px; }
+    .card p { font-size: 0.9em; opacity: 0.8; }
+
+    
+    #contact {
+      padding: 80px 20px;
+      text-align: center;
+      background: #0f172a;
+    }
+    #contact h2 { margin-bottom: 20px; color: #3b82f6; }
+    #contact p { max-width: 500px; margin: 0 auto 30px; opacity: 0.8; }
+    #contact .btn {
+      background: #3b82f6;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+      display: inline-block;
+    }
+    #contact .btn:hover { background: #2563eb; transform: scale(1.05); }
+
+    footer {
+      
+      padding: 40px 20px;
+      background: #1e293b;
+      text-align: center;
+      color: #94a3b8;
+      font-size: 0.9em;
+    }
+    footer p { margin-bottom: 15px; }
+    footer .socials a {
+      color: #94a3b8;
+      margin: 0 10px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    footer .socials a:hover { color: #3b82f6; }
+
+    input, textarea {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #e7e6e6;
+    border-radius: 4px;
+    font-size: 16px;
+}
+textarea {
+    height: 150px;
+    resize: none;
+}
+
+.textarea-glow {
+  width: 100%;
+  max-width: 500px;
+  min-height: 130px;
+  padding: 14px;
+  background: #0f172a;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  color: #f1f5f9;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  outline: none;
+  resize: vertical;
+  background-image: linear-gradient(#0f172a, #0f172a), 
+                    linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  transition: 0.4s;
+}
+
+.textarea-glow:focus {
+  animation: rotate-border 3s linear infinite;
+}
+
+@keyframes rotate-border {
+ 0% { filter: hue-rotate(0deg); }
+ 100% { filter: hue-rotate(360deg); }
+}
+
+@keyframes glowPulse {
+ 0%, 100% { box-shadow: 0 0 15px #1e097c, 0 0 30px #080807; }
+ 50% { box-shadow: 0 0 40px #f30404, 0 0 80px #5e8b82, 0 0 120px #06fa43; }
+ }
+
+
+ footer {
+  background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), 
+              url('aerial-beautiful-shot-seashore-with-hills-background-sunset.JPG');
+  background-size: cover;
+  background-position: center;
+  color: #f1f5f9; /* texte blanc pour contraster */
+}
+  </style>
+</head>
+
+<body>
+  
+  <section id="hero">
+    <br><h1>Salut, je suis <span>Anselme</span></h1>
+    <br><img src="1.JPG" style="width: 250px; height: 250px; object-fit: cover;border-radius: 50%; border: 4px solid #3d2c7a; animation: glowPulse 1s ease-in-out infinite;">
+    <hr><p>Développeur web passionné, je crée des sites modernes et responsives. J'aime apprendre et partager mes connaissances.</p>
+  <div class="grid">
+      <div class="card">
+         <div class="card-content"></div>
+        <strong>Presentation Personnel</strong>
+        <strong><hr><ol>NOM:</strong>SAKPONOU</ol>
+        <strong><ol>PRENOM:</strong>Anselme</ol>
+        <strong><ol>CLASSE:</strong>Tle</ol>
+      </div>
+
+      <div class="grid">
+      <div class="card">
+         <div class="card-content"></div>
+        <strong>COMPETENCE</strong>
+        <hr><ol>DEVELOPPEUR WEB</ol>
+        <ol>MAINTNANCIER</ol>
+        <ol>Concepteur de site</ol>
+      </div>
+  </section>
+
+
+  <section id="projets">
+    <h2>Mes Projets</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="card-content">
+          <h3>Projet 1</h3>
+          <p>J'ai creé un site touristique ou on pourras visiter le BENIN sans y etre </p>
+        </div>
+      </div>
+      <div class="card">
+
+        <div class="card-content">
+          <h3>Projet 2</h3>
+          <p>J'ai fait des formulaires sous differentes formes qui pourrait etre integrer dans des sites d'inscription.</p>
+        </div>
+      </div>
+      <div class="card">
+      
+        <div class="card-content">
+          <h3>Projet 3</h3>
+          <p> Conception d'un site personnel avec beaucoup d'animation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Besoin de nos services et nos oeuvres</p>
+    <strong><p>Écrivez-moi !</p></strong>
+                <input type="email" name="email" placeholder="Enter your Name" required>
+                <br><input type="email" name="email" placeholder="Enter a valid email address" required><br>
+                <textarea name="message" placeholder="Écris ton message ici..." required class="textarea-glow"></textarea>
+   <br> <a href="mailto:codjoanselme40@gmail.com" class="btn">👉 Envoyer un message</a><br>
+ 
+   <br><div class="icons">                            
+                <img src="facebook.svg"style="width:30px; height:30px;">
+
+                <img src="twitter.svg"style="width:30px; height:30px;">
+
+                <img src="instagram.svg"style="width:30px; height:30px;">
+
+                <img src="google.svg"style="width:30px; height:30px;">+
+
+            </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer>
+    <p><strong>TOUJOUR A VOTRE SERVICE</strong></p>
+    <p>© 2026 Anselme SAKPONOU — Développeur Web</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+</body>
+</html>
